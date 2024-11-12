@@ -69,6 +69,41 @@ class ResNet(nn.Module):
         out = self.fc_layer[:-1](out)
         return out
     
+    
+    def forward1(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        out = self.gap(out)
+        out = out.view(out.size(0), -1)
+        return out
+    
+    def forward2(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        out = self.layer2(out)
+        out = self.gap(out)
+        out = out.view(out.size(0), -1)
+        return out
+    
+    def forward3(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        out = self.layer2(out)
+        out = self.layer3(out)
+        out = self.gap(out)
+        out = out.view(out.size(0), -1)
+        return out
+    
+    def forward4(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        out = self.layer2(out)
+        out = self.layer3(out)
+        out = self.layer4(out)
+        out = self.gap(out)
+        out = out.view(out.size(0), -1)
+        return out
+    
     def forward_softmax(self,x):
         out = self.fc_layer[-1](x)
         return out
