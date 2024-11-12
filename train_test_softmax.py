@@ -55,14 +55,14 @@ for t in range(epochs):
     scheduler.step()
     print('Time taken:', datetime.now()-now)
 
-torch.save(model.state_dict(), './resnet18_sgd_margin_compact_loss_200_epochs')
+torch.save(model.state_dict(), './resnet18_sgd_softmax_loss_200_epochs')
 
 print("Training Done!")
 print(datetime.now())
 print('Time taken:', datetime.now()-now)
 
 model = ResNet18().to(device)
-model.load_state_dict(torch.load('./resnet18_sgd_margin_compact_loss_200_epochs'))
+model.load_state_dict(torch.load('./resnet18_sgd_softmax_loss_200_epochs'))
 print("Testing acurracy of model on test set")
 correct = accuracy_evaluation(test_loader, model)
 print(correct)
