@@ -1,6 +1,6 @@
 # Large Margin Discriminative Loss for Classification
 
-This Repo contains all the files related for computing Lens Depth and for conducting experiments in the related paper.
+This Repo contains all the files related to train models with our proposes loss function and for conducting experiments in the related paper.
 
 ## Dependencies
 
